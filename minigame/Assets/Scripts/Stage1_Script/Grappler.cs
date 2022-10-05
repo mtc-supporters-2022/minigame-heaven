@@ -4,46 +4,41 @@ using UnityEngine;
 
 public class Grappler : MonoBehaviour
 {
-    // 참고 영상
-    // https://www.youtube.com/watch?v=P-UscoFwaE4
+    //참고 영상
+    //https://www.youtube.com/watch?v=P-UscoFwaE4
 
     public Camera mainCamera;
     public LineRenderer lineRenderer;
     public DistanceJoint2D distanceJoint;
 
+    //public float x_pos;
+
     void Start()
     {
-        // 거리유지 비활성화
         distanceJoint.enabled = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 눌렀을 때
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // 줄 생성 위치
-            Vector3 linePos = new Vector3(transform.position.x + 3f, 4f, 0f);
-            //Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치
+            // linePos : 줄 위치는 천장 가운데에
+            //Vector2 linePos = new Vector2(0f, 4.5f);
+            Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-            // 줄 시작과 끝 위치 지정
-            lineRenderer.SetPosition(0, linePos);
+            lineRenderer.SetPosition(0, mousePos);
             lineRenderer.SetPosition(1, transform.position);
 
-            // Distance Joint 2D : Rigidbody 2D 물리 법칙이 제어하는 두 개의 게임 오브젝트를 연결하고 일정한 간격을 유지하는 2D 조인트
-            distanceJoint.connectedAnchor = linePos;
-
-            // 거리 유지, 줄 활성화
+            distanceJoint.connectedAnchor = mousePos;
             distanceJoint.enabled = true;
             lineRenderer.enabled = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0)) // 마우스 뗐을 때
+        else if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            // 거리 유지, 줄 비활성화
             distanceJoint.enabled = false;
             lineRenderer.enabled = false;
         }
 
-        // 거리 유지 활성화 중이라면 플레이어 위치 계속 업데이트 
         if (distanceJoint.enabled)
         {
             lineRenderer.SetPosition(1, transform.position);
