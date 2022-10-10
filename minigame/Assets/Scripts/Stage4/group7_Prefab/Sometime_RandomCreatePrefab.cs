@@ -29,57 +29,57 @@ public class Sometime_RandomCreatePrefab : MonoBehaviour
 
         if (deleteRock == 1)
         {
-            newPos1.x += 2 * 144 - 432;
+            newPos1.x += 2 - 3;
             newPos1.y += 0;
-            newPos2.x += 3 * 144 - 432;
+            newPos2.x += 3 - 3;
             newPos2.y += 0;
-            newPos3.x += 4 * 144 - 432;
+            newPos3.x += 4 - 3;
             newPos3.y += 0;
-            newPos4.x += 5 * 144 - 432;
+            newPos4.x += 5 - 3;
             newPos4.y += 0;
         }
         else if (deleteRock == 2)
         {
-            newPos1.x += 1 * 144 - 432;
+            newPos1.x += 1 - 3;
             newPos1.y += 0;
-            newPos2.x += 3 * 144 - 432;
+            newPos2.x += 3 - 3;
             newPos2.y += 0;
-            newPos3.x += 4 * 144 - 432;
+            newPos3.x += 4 - 3;
             newPos3.y += 0;
-            newPos4.x += 5 * 144 - 432;
+            newPos4.x += 5 - 3;
             newPos4.y += 0;
         }
         else if (deleteRock == 3)
         {
-            newPos1.x += 1 * 144 - 432;
+            newPos1.x += 1 - 3;
             newPos1.y += 0;
-            newPos2.x += 2 * 144 - 432;
+            newPos2.x += 2 - 3;
             newPos2.y += 0;
-            newPos3.x += 4 * 144 - 432;
+            newPos3.x += 4 - 3;
             newPos3.y += 0;
-            newPos4.x += 5 * 144 - 432;
+            newPos4.x += 5 - 3;
             newPos4.y += 0;
         }
         else if (deleteRock == 4)
         {
-            newPos1.x += 1 * 144 - 432;
+            newPos1.x += 1 - 3;
             newPos1.y += 0;
-            newPos2.x += 2 * 144 - 432;
+            newPos2.x += 2 - 3;
             newPos2.y += 0;
-            newPos3.x += 3 * 144 - 432;
+            newPos3.x += 3 - 3;
             newPos3.y += 0;
-            newPos4.x += 5 * 144 - 432;
+            newPos4.x += 5 - 3;
             newPos4.y += 0;
         }
         else if (deleteRock == 5)
         {
-            newPos1.x += 1 * 144 - 432;
+            newPos1.x += 1 - 3;
             newPos1.y += 0;
-            newPos2.x += 2 * 144 - 432;
+            newPos2.x += 2 - 3;
             newPos2.y += 0;
-            newPos3.x += 3 * 144 - 432;
+            newPos3.x += 3 - 3;
             newPos3.y += 0;
-            newPos4.x += 5 * 144 - 432;
+            newPos4.x += 5 - 3;
             newPos4.y += 0;
         }
 
