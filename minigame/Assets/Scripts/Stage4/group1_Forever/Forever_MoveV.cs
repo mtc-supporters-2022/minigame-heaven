@@ -6,7 +6,7 @@ using UnityEngine;
 public class Forever_MoveV : MonoBehaviour
 {
 
-    public float speed = 1; // 속도：Inspector에 지정
+    public float speed = -7; // 속도：Inspector에 지정
 
     void FixedUpdate()
     { // 계속 시행한다（일정 시간마다）
