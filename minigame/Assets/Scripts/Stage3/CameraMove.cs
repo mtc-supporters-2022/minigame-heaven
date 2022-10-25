@@ -12,7 +12,7 @@ public class CameraMove : MonoBehaviour
         Vector3 targetPos = new Vector3(player.transform.position.x + 0.7f, player.transform.position.y, transform.position.z);
 
         // 선형보간 Lerp
-        // 근데 왜케 덜덜거리지
+        // 근데 왜케 덜덜거리지 => rigidbody 설정 변경
         transform.position = Vector3.Lerp(this.transform.position, targetPos, Time.deltaTime * cameraSpeed);
         // transform.position ㄱㄴ, this.transform.position ㄱㄴ
     }
