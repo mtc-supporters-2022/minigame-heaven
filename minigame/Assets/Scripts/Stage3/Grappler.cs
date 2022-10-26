@@ -18,6 +18,7 @@ public class Grappler : MonoBehaviour
     public GameObject startbtn;
 
     bool isGaming;
+    Vector3 bestDist;
 
     void Start()
     {
@@ -25,21 +26,34 @@ public class Grappler : MonoBehaviour
         // 거리유지 비활성화
         distanceJoint.enabled = false;
         rigidbody2d.bodyType = RigidbodyType2D.Static;
+
+        bestDist = transform.position;
     }
 
     void Update()
     {
         if (isGaming)
         {
-            if (transform.position.y <= -5) // 절대 좌표
+
+            if (bestDist.x < transform.position.x) // 멀리 간 거리 갱신
+                bestDist.x = transform.position.x;
+
+            if (bestDist.x > transform.position.x)
             {
-                GameState(false);
+                distanceJoint.enabled = false;
+                lineRenderer.enabled = false;
             }
+
+
+            Vector3 temp = transform.position;
+            temp.x += 3 * Time.deltaTime;
+            temp.y += 0.3f * Time.deltaTime;
+            transform.position = temp;
 
             if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 눌렀을 때
             {
                 // 줄 생성 위치
-                Vector3 linePos = new Vector3(transform.position.x + 3f, 4f, 0f);
+                Vector3 linePos = new Vector3(transform.position.x + 3f, 4.5f, 0f);
                 //Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치
 
                 // 줄 시작과 끝 위치 지정
@@ -52,6 +66,9 @@ public class Grappler : MonoBehaviour
                 // 거리 유지, 줄 활성화
                 distanceJoint.enabled = true;
                 lineRenderer.enabled = true;
+
+                //transform.position = new Vector3(transform.position.x + 5 * Time.deltaTime, transform.position.y, transform.position.z);
+                
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0)) // 마우스 뗐을 때
             {
@@ -65,8 +82,35 @@ public class Grappler : MonoBehaviour
             {
                 lineRenderer.SetPosition(1, transform.position);
             }
+
+            if (transform.position.y <= -5) // 절대 좌표
+            {
+                GameState(false);           // 게임 오버
+            }
         }
     }
+
+    public void GameState(bool val) // true이면 GameStart, false이면 GameOver
+    {
+        isGaming = val;
+        blackPnl.SetActive(!val);
+        startbtn.SetActive(!val);
+
+        distanceJoint.enabled = false;
+        lineRenderer.enabled = false;
+
+        if (val)
+        {
+            rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
+        }
+        else
+        {
+            rigidbody2d.bodyType = RigidbodyType2D.Static;
+            transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
+            bestDist = transform.position;
+        }
+    }
+
     /*
     public void GameStart()
     {
@@ -91,24 +135,4 @@ public class Grappler : MonoBehaviour
 
         transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
     }*/
-
-    public void GameState(bool val) // true이면 GameStart, false이면 GameOver
-    {
-        isGaming = val;
-        blackPnl.SetActive(!val);
-        startbtn.SetActive(!val);
-
-        distanceJoint.enabled = false;
-        lineRenderer.enabled = false;
-
-        if (val)
-        {
-            rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
-        }
-        else
-        {
-            rigidbody2d.bodyType = RigidbodyType2D.Static;
-            transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
-        }
-    }
 }
