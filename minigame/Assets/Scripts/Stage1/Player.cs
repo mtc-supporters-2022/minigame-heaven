@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -8,13 +9,26 @@ public class Player : MonoBehaviour
     public static Player Inst { get; private set; }
 
     [SerializeField] GameObject touchScreen;
+    [SerializeField] GameObject[] princess;
 
-    Animator anim;
+    Animator[] anim;
+    int princessCount;
 
     void Awake()
     {
         Inst = this;
-        anim = GetComponent<Animator>();
+        anim = new Animator[3];
+        for (int i = 0; i < princess.Length; i++) { anim[i] = princess[i].GetComponent<Animator>(); }
+
+        princessCount = 1;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Minus();
+        }
     }
 
     public void DoIdle()
@@ -32,25 +46,64 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        touchScreen.SetActive(false);
-        ChangeAnim(State.Hit);
+        Plus();
+        /*        touchScreen.SetActive(false);
+                ChangeAnim(State.Hit);
+                Invoke("ActiveOn", 0.7f);*/
     }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        
-        ChangeAnim(State.Recovery);
-        Invoke("ActiveOn", 0.5f);
-    }
+    /*    void OnTriggerExit2D(Collider2D collision)
+        {
+
+            ChangeAnim(State.Recovery);
+            Invoke("ActiveOn", 0.5f);
+        }*/
 
     public void ChangeAnim(State state)
     {
-        anim.SetInteger("State", (int)state);
+        for (int i = 0; i < princess.Length; i++) { anim[i].SetInteger("State", (int)state); }
+    }
+    /*
+        void ActiveOn()
+        {
+            ChangeAnim(State.Recovery);
+            touchScreen.SetActive(true);
+        }*/
+
+    public void Plus()
+    {
+
+        if (princessCount < 3)
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(princess[1].transform.
+                DOMove(princess[1].GetComponent<originPosition>().nextPos, 0.2f))
+                .AppendCallback(() =>
+                {
+                    princess[2].GetComponent<originPosition>().nextPosUpdate();
+                })
+                .Append(princess[2].transform.
+                DOMove(princess[2].GetComponent<originPosition>().nextPos, 0.2f))
+                .OnComplete(() =>
+                {
+                    princessCount++;
+                });
+        }
     }
 
-    void ActiveOn()
+    public void Minus()
     {
-        touchScreen.SetActive(true);
+        if (princessCount > 1)
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(princess[2].transform.DOMove
+                (princess[2].GetComponent<originPosition>().originPos, 0.2f))
+                                .Append(princess[1].transform.
+                DOMove(princess[1].GetComponent<originPosition>().originPos, 0.2f))
+                .OnComplete(() =>
+                {
+                });
+        }
     }
 
     //애니메이션
