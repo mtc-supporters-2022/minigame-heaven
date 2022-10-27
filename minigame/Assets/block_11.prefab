@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9a56de61c40493a85f9d5caf851359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObjectName: player2U_0
+  targetObjectName: Sprite-0005
   sceneName: MainScene
