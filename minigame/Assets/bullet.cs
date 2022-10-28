@@ -12,8 +12,8 @@ public class bullet : MonoBehaviour
     void Start()
     {
         targetPos = GameObject.Find("player").transform.position;
-        myPos = transform.position;         // 복제되어 생선된 총알 위치 대입
-        newPos = (targetPos - myPos) * 0.003f;  // 총알속도 변경
+        myPos = transform.position;         // 복제되어 생성된 총알 위치 대입
+        newPos = (targetPos - myPos) * 0.001f;  // 총알속도 변경
 
         Destroy(gameObject, 10f);       //총알소멸(제거할오브젝트, 지연시간)
     }
@@ -23,4 +23,5 @@ public class bullet : MonoBehaviour
     {
         transform.position = transform.position + newPos;   // 목표로 이동
     }
+
 }

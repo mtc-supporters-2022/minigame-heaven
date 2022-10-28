@@ -15,13 +15,34 @@ public class GameController : MonoBehaviour
     {
         sec = 90;       // 90초 버티기
 
-        InvokeRepeating("MakeBullet", 0f, 1f);        //반복적으로 "MakeBullet"함수호출
+        InvokeRepeating("MakeBullet", 0f, 1f);        //반복적으로 "MakeBullet"함수호출    , 여러번 호출해서 난이도 올릴 예정
+        StartCoroutine(MakeBullet_15());              // 15초 경과시 난이도 1단계 올림
+        StartCoroutine(MakeBullet_40());              // 40초 경과시 난이도 1단계 올림
+        StartCoroutine(MakeBullet_60());              // 60초 경과시 난이도 1단계 올림
         InvokeRepeating("SetTime", 1f, 1f);           //반복적으로 "SetTime"함수호출
     }
 
-    void SetTime(){                   //1초마다 sec값 1감소
-        sec = sec - 1;
+    void SetTime(){              //플레이 타임 측정     
+        sec = sec - 1;           //1초마다 sec값 1감소
         TIME.text = ""+sec;
+    }
+    IEnumerator MakeBullet_15()
+    {
+        yield return new WaitForSeconds(15f);    // 유니티시간으로 15초 경과 후
+        InvokeRepeating("MakeBullet", 0f, 1f);
+        InvokeRepeating("MakeBullet", 0f, 1f);
+    }
+    IEnumerator MakeBullet_40()
+    {
+        yield return new WaitForSeconds(40f);    // 유니티시간으로 40초 경과 후
+        InvokeRepeating("MakeBullet", 0f, 1f);
+        InvokeRepeating("MakeBullet", 0f, 1f);
+    }
+    IEnumerator MakeBullet_60()
+    {
+        yield return new WaitForSeconds(60f);    // 유니티시간으로 60초 경과 후
+        InvokeRepeating("MakeBullet", 0f, 1f);
+        InvokeRepeating("MakeBullet", 0f, 1f);
     }
 
     void MakeBullet(){                   //총알 생성
@@ -32,7 +53,7 @@ public class GameController : MonoBehaviour
         float xValue = Random.Range(0f,360f);
         float yValue = Random.Range(0f,640f);
 
-        Debug.Log("switchValue : " + switchValue + ", xValue : " + xValue + ", yValue : " + yValue);   //콘솔창에서 실행 검사
+        //Debug.Log("switchValue : " + switchValue + ", xValue : " + xValue + ", yValue : " + yValue);   //콘솔창에서 실행 검사
 
         if(switchValue > 0.5f){
             if(Random.value > 0.5f){
@@ -55,6 +76,13 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    void GameOver()
+    {
+        if(Heart.hp == 0){
+            Application.Quit();
+        }
     }
 }
