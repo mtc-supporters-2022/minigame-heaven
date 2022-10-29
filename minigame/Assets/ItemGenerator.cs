@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemGenerator : MonoBehaviour
 {
     public GameObject block_11;
+    public GameObject star;
     public GameObject Square;
     float span = 1.0f;
     float delta = 0;
@@ -20,8 +21,9 @@ public class ItemGenerator : MonoBehaviour
     {
         this.delta += Time.deltaTime;
         
-        Square.GetComponent<Sometime_RandomCreatePrefab>().intervalSec = this.span;
+        Square.GetComponent<Create>().intervalSec = this.span;
         block_11.GetComponent<Forever_MoveV>().speed = this.speed;
+        star.GetComponent<Forever_MoveV>().speed = this.speed;
 
     }
 }
