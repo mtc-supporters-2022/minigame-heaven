@@ -6,22 +6,25 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 
-    public GameObject bulletPrefeb;    //GameController 에서는 총알 생성까지만        
+    public GameObject bulletPrefeb;    //GameController 에서는 총알 생성까지만    
+    public GameObject itemPrefeb;    
     public GameObject uiEndGameObject;
     public Text TIME;
-    int sec;
+    public int sec;
     // Start is called before the first frame update
     void Start()
     {
         sec = 90;       // 90초 버티기
+        InvokeRepeating("SetTime", 1f, 1f);           //반복적으로 "SetTime"함수호출
+
+        InvokeRepeating("MakeItem", 0f, 1f);
 
         InvokeRepeating("MakeBullet", 0f, 1f);        //반복적으로 "MakeBullet"함수호출    , 여러번 호출해서 난이도 올릴 예정
         StartCoroutine(MakeBullet_15());              // 15초 경과시 난이도 1단계 올림
         StartCoroutine(MakeBullet_40());              // 40초 경과시 난이도 1단계 올림
         StartCoroutine(MakeBullet_60());              // 60초 경과시 난이도 1단계 올림
-        InvokeRepeating("SetTime", 1f, 1f);           //반복적으로 "SetTime"함수호출
     }
-
+  
     void SetTime(){              //플레이 타임 측정     
         sec = sec - 1;           //1초마다 sec값 1감소
         TIME.text = ""+sec;
@@ -73,6 +76,31 @@ public class GameController : MonoBehaviour
         }        
     }
 
+    void MakeItem(){                   //아이템 생성
+
+        GameObject item;
+
+        float randomValue = Random.value;          //아이템이 출현할 x,y값 랜덤 지정
+        float xValue = Random.Range(0f,360f);
+        float yValue = Random.Range(0f,640f);
+
+        if(randomValue > 0.5f){
+            if(Random.value > 0.5f){
+                item = Instantiate(itemPrefeb, new Vector3(0f, yValue, 0f), Quaternion.identity);
+            }
+            else{
+                item = Instantiate(itemPrefeb, new Vector3(360f, yValue, 0f), Quaternion.identity);
+            }
+        }
+        else{
+            if(Random.value > 180f){
+                item = Instantiate(itemPrefeb, new Vector3(xValue,0f,0f), Quaternion.identity);
+            }
+            else{
+                item = Instantiate(itemPrefeb, new Vector3(xValue,640f,0), Quaternion.identity);
+            }
+        }        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -81,8 +109,6 @@ public class GameController : MonoBehaviour
 
     void GameOver()
     {
-        if(Heart.hp == 0){
-            Application.Quit();
-        }
+
     }
 }
