@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
             case 4:
                 SceneManager.LoadScene("Stage4");
                 break;
+            case 5:
+                SceneManager.LoadScene("MainScene");
+                break;
         }
         
     }
