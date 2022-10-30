@@ -15,7 +15,7 @@ public class return1 : MonoBehaviour
         if (gameObject.GetComponent<BoxCollider2D>().enabled == false)
         {
             this.time += Time.deltaTime;
-            if(this.time > 4)
+            if(this.time > 4 && !(Time.timeScale == 0))
             {
                 Time.timeScale = 1.0F;
             }

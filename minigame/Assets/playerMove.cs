@@ -10,37 +10,41 @@ public class playerMove : MonoBehaviour
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
 
-        if (posx > -2)
+        if (Time.timeScale != 0)
         {
-            if (Input.GetMouseButtonDown(0) == true && mousePos.x<720)
+            if (posx > -2)
             {
-                posx = posx - 1;
+                if (Input.GetMouseButtonDown(0) == true && mousePos.x < 720)
+                {
+                    posx = posx - 1;
+                }
             }
-        }
-        if (Input.GetMouseButton(0) == true && mousePos.x < 720)
-        {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(posx,-4,0), 0.05f);
+            if (Input.GetMouseButton(0) == true && mousePos.x < 720)
+            {
+                gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(posx, -4, 0), 0.05f);
 
-        }
-        if (Input.GetMouseButtonUp(0) == true && mousePos.x < 720)
-        {
-            gameObject.transform.position = (new Vector3(posx,-4 , 0));
-        }
-        if (posx < 2)
-        {
-            if (Input.GetMouseButtonDown(0) == true && mousePos.x > 720)
+            }
+            if (Input.GetMouseButtonUp(0) == true && mousePos.x < 720)
             {
-                posx = posx + 1;
+                gameObject.transform.position = (new Vector3(posx, -4, 0));
+            }
+            if (posx < 2 && !((mousePos.x > 900 && mousePos.x < 1300)&&(mousePos.y > 1962 && mousePos.y < 2482)))
+            {
+                if (Input.GetMouseButtonDown(0) == true && mousePos.x > 720)
+                {
+                    posx = posx + 1;
+                }
+            }
+            if (Input.GetMouseButton(0) == true && mousePos.x > 720)
+            {
+                gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(posx, -4, 0), 0.05f);
+            }
+            if (Input.GetMouseButtonUp(0) == true && mousePos.x > 720)
+            {
+                gameObject.transform.position = (new Vector3(posx, -4, 0));
             }
         }
-        if (Input.GetMouseButton(0) == true && mousePos.x > 720)
-        {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(posx,-4,0), 0.05f);
-        }
-        if (Input.GetMouseButtonUp(0) == true && mousePos.x > 720)
-        {
-            gameObject.transform.position = (new Vector3(posx,-4 , 0));
-        }
+        
     }
 
 }
