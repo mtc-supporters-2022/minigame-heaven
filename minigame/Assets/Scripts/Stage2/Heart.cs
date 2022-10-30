@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    public static int hp = 5;
+    public  int hp = 5;
     
     // Start is called before the first frame update
     void Start()
