@@ -100,7 +100,7 @@ public class Create : MonoBehaviour
             {
                 
                 newPos5.x += deleteRock - 3;
-                newPos5.y += 0;
+                newPos5.y += -0.3f;
                 newPos5.z = -5;
                 
                 GameObject newGameObject5 = Instantiate(item) as GameObject;
