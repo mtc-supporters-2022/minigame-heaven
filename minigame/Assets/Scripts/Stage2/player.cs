@@ -24,12 +24,12 @@ public class player : MonoBehaviour
             DecreaseHP();  //충동 시 생명력 1감소
             Destroy(collider.gameObject);   // 충돌한 bullet 파괴
         }
-        // if(collider.gameObject.name == "item(Clone)")
-        // {
-        //     GameController.sec -= 4;
-        //     Destroy(collider.gameObject);   // 충돌한 bullet 파괴
+         if(collider.gameObject.name == "item(Clone)")
+         {
+            Destroy(collider.gameObject);   // 충돌한 bullet 파괴
+            GameObject.Find("game").GetComponent<GameController>().ItemSetTime();
 
-        // }
+         }
     }
 
     void DecreaseHP() 
