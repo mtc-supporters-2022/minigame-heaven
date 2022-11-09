@@ -25,10 +25,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             Minus();
         }
+
     }
 
     public void DoIdle()
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Plus();
+        //Plus();
         /*        touchScreen.SetActive(false);
                 ChangeAnim(State.Hit);
                 Invoke("ActiveOn", 0.7f);*/
@@ -73,36 +75,37 @@ public class Player : MonoBehaviour
     public void Plus()
     {
 
-        if (princessCount < 3)
+        if (princessCount == 1 || princessCount == 2)
         {
+
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(princess[1].transform.
-                DOMove(princess[1].GetComponent<originPosition>().nextPos, 0.2f))
-                .AppendCallback(() =>
-                {
-                    princess[2].GetComponent<originPosition>().nextPosUpdate();
-                })
-                .Append(princess[2].transform.
-                DOMove(princess[2].GetComponent<originPosition>().nextPos, 0.2f))
+            sequence.Append(princess[princessCount].transform.DOMove(princess[princessCount].GetComponent<originPosition>().nextPos, 0.2f))
                 .OnComplete(() =>
                 {
-                    princessCount++;
+                    if (princessCount == 1)
+                    {
+                        princess[2].GetComponent<originPosition>().nextPosUpdate();
+                        princessCount++;
+
+                    }
                 });
         }
     }
 
     public void Minus()
     {
-        if (princessCount > 1)
+        if (princessCount == 1 || princessCount == 2)
         {
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(princess[2].transform.DOMove
-                (princess[2].GetComponent<originPosition>().originPos, 0.2f))
-                                .Append(princess[1].transform.
-                DOMove(princess[1].GetComponent<originPosition>().originPos, 0.2f))
+            sequence
+                .Append(princess[princessCount].transform.DOMove(princess[princessCount].GetComponent<originPosition>().originPos, 0.2f))
                 .OnComplete(() =>
                 {
+                    if (princessCount == 2)
+                        princessCount--;
                 });
+
+
         }
     }
 

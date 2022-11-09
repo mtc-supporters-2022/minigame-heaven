@@ -10,8 +10,8 @@ public class originPosition : MonoBehaviour
 
     private void Start()
     {
-        originPos = transform.position;
-        nextPos= transform.position + (Vector3.left*0.5f);
+        originPos = transform.position; //시작하자마자 현재 위치 받아옴
+        nextPos= transform.position + (Vector3.left*0.5f); //바로 왼쪽 위치 받아옴
     }
 
     public void nextPosUpdate()
