@@ -16,9 +16,7 @@ public class GameController : MonoBehaviour
     {
         sec = 90;       // 90초 버티기
         InvokeRepeating("SetTime", 1f, 1f);           //반복적으로 "SetTime"함수호출
-
-        InvokeRepeating("MakeItem", 0f, 1f);
-
+        InvokeRepeating("MakeItem", 20f, 20f);
         InvokeRepeating("MakeBullet", 0f, 1f);        //반복적으로 "MakeBullet"함수호출    , 여러번 호출해서 난이도 올릴 예정
         StartCoroutine(MakeBullet_15());              // 15초 경과시 난이도 1단계 올림
         StartCoroutine(MakeBullet_40());              // 40초 경과시 난이도 1단계 올림
@@ -28,6 +26,12 @@ public class GameController : MonoBehaviour
     void SetTime(){              //플레이 타임 측정     
         sec = sec - 1;           //1초마다 sec값 1감소
         TIME.text = ""+sec;
+    }
+    public void ItemSetTime()
+    {
+        sec -= 5;
+        TIME.text = ""+sec;
+
     }
     IEnumerator MakeBullet_15()
     {

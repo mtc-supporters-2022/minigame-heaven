@@ -13,7 +13,7 @@ public class bullet : MonoBehaviour
     {
         targetPos = GameObject.Find("player").transform.position;
         myPos = transform.position;         // 복제되어 생성된 총알 위치 대입
-        newPos = (targetPos - myPos) * 0.001f;  // 총알속도 변경
+        newPos = (targetPos - myPos) * 0.0007f;  // 총알속도 변경
 
         Destroy(gameObject, 10f);       //총알소멸(제거할오브젝트, 지연시간)
     }
