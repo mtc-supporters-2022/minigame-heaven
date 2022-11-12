@@ -14,8 +14,8 @@ public class Grappler : MonoBehaviour
     public Rigidbody2D rigidbody2d;
 
     [Header("GameObject")]
-    public GameObject blackPnl;
-    public GameObject startbtn;
+    public GameObject startPnl;
+    public GameObject gameoverPnl;
 
     bool isGaming;
     Vector3 bestDist;
@@ -93,46 +93,21 @@ public class Grappler : MonoBehaviour
     public void GameState(bool val) // true이면 GameStart, false이면 GameOver
     {
         isGaming = val;
-        blackPnl.SetActive(!val);
-        startbtn.SetActive(!val);
+        startPnl.SetActive(!val);
 
         distanceJoint.enabled = false;
         lineRenderer.enabled = false;
 
-        if (val)
+        if (val) //GameStart
         {
             rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
         }
-        else
+        else     //GameOver
         {
+            gameoverPnl.SetActive(true);
             rigidbody2d.bodyType = RigidbodyType2D.Static;
             transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
             bestDist = transform.position;
         }
     }
-
-    /*
-    public void GameStart()
-    {
-        isGaming = true;
-        blackPnl.SetActive(false);
-        startbtn.SetActive(false);
-
-        distanceJoint.enabled = false;
-        lineRenderer.enabled = false;
-        rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    public void GameOver()
-    {
-        isGaming = false;
-        blackPnl.SetActive(true);
-        startbtn.SetActive(true);
-
-        distanceJoint.enabled = false;
-        lineRenderer.enabled = false;
-        rigidbody2d.bodyType = RigidbodyType2D.Static;
-
-        transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
-    }*/
 }
