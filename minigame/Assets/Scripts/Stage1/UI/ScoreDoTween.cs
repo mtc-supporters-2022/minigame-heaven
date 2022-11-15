@@ -24,7 +24,7 @@ public class ScoreDoTween : MonoBehaviour
                 //transform.position = originPosition;
                 //transform.GetComponent<Text>().color = new Color32(255,239,0,255);
             })
-            .Append(rect.DOAnchorPosY(-90, 0.7f))
+            .Append(rect.DOAnchorPosY(-100, 0.7f))
             .Join(transform.GetComponent<Text>().DOFade(0,0.7f))
             .OnComplete(() =>
             {

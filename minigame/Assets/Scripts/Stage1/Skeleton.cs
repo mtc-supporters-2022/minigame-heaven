@@ -15,24 +15,25 @@ public class Skeleton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
         sequence = DOTween.Sequence()
             .SetAutoKill(false) //Ãß°¡
             .OnStart(() =>
             {
                 transform.position = Vector3.zero;
             })
-            .Append(transform.DOShakePosition(duration, strength, vibrato, randomness, false, true))
+            .Append(transform.DOShakePosition(duration,2))
             .AppendInterval(0.2f)
             .OnComplete(() =>
             {
                 gameObject.SetActive(false);
+                Touch.Inst.setDoClick(true);
+                Touch.Inst.startRecovery();
             });
     }
 
     private void OnEnable()
     {
+        Touch.Inst.setDoClick(false);
         sequence.Restart();
     }
 
