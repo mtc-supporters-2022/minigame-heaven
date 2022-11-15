@@ -9,6 +9,10 @@ public class GenerateBG : MonoBehaviour
     public GameObject[] wall;
     public GameObject[] lava;
 
+    int ceiling_num = 0;
+    int wall_num = 0;
+    int lava_num = 0;
+
     void Start()
     {
         Debug.Log(player.transform.position);
@@ -24,8 +28,9 @@ public class GenerateBG : MonoBehaviour
         */
 
         // 천장 판별 후 이동
-        if (player.transform.position.x > ceiling[0].transform.position.x)
+        if (player.transform.position.x > ceiling[0].transform.position.x)  // -11.43 / -3.6 / 4.3
             Debug.Log(player.transform.position);
+
         // 벽 판별 후 이동
 
         // 용암 판별 후 이동
