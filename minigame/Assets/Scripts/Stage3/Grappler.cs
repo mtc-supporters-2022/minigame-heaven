@@ -26,13 +26,16 @@ public class Grappler : MonoBehaviour
     public Text bscoreTxt;
 
     bool isGaming;
+    bool gameStart;
     Vector3 bestDist;
 
     public Animator anim;
 
     void Start()
     {
+        gameoverPnl.SetActive(false);
         isGaming = false;
+        gameStart = false;
         // 거리유지 비활성화
         distanceJoint.enabled = false;
         rigidbody2d.bodyType = RigidbodyType2D.Static;
@@ -65,6 +68,7 @@ public class Grappler : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && !UIManager.GetComponent<UIManager>().isPause) // 마우스 눌렀을 때
             {
+                gameStart = true;
                 // 줄 생성 위치
                 Vector3 linePos = new Vector3(transform.position.x + 3f, 4.5f, 0f);
                 //Vector2 mousePos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition); // 마우스 위치
@@ -88,7 +92,8 @@ public class Grappler : MonoBehaviour
                 // 거리 유지, 줄 비활성화
                 distanceJoint.enabled = false;
                 lineRenderer.enabled = false;
-                anim.SetBool("isJump", true);
+                if (gameStart)
+                    anim.SetBool("isJump", true);
             }
 
             // 거리 유지 활성화 중이라면 플레이어 위치 계속 업데이트 
@@ -118,6 +123,7 @@ public class Grappler : MonoBehaviour
         }
         else     //GameOver
         {
+            gameStart = false;
             gameoverPnl.SetActive(true);
             rigidbody2d.bodyType = RigidbodyType2D.Static;
             transform.position = new Vector3(-0.31f, 1.2964f, -1f);

@@ -25,16 +25,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-        }
-        else if (_instance != this)
-        {
-            Destroy(gameObject);    // 인스턴스가 존재하는 경우 새로 생기는 인스턴스를 삭제
-        }
+        //if (_instance == null)
+        //{
+        //    _instance = this;
+        //}
+        //else if (_instance != this)
+        //{
+        //    //Destroy(gameObject);    // 인스턴스가 존재하는 경우 새로 생기는 인스턴스를 삭제
+        //}
 
-        DontDestroyOnLoad(gameObject); // 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않게
+        //DontDestroyOnLoad(gameObject); // 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않게
     }
 
     public void LoadScene(int idx)
