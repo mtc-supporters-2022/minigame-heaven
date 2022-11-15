@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     }
     public void ItemSetTime()
     {
-        sec -= 5;
+        sec -= 10;
         TIME.text = ""+sec;
 
     }

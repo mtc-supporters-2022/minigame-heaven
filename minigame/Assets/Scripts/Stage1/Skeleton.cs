@@ -11,6 +11,7 @@ public class Skeleton : MonoBehaviour
     [SerializeField] float strength;
     [SerializeField] int vibrato;
     [SerializeField] int randomness;
+    [SerializeField] GameObject touch;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,6 @@ public class Skeleton : MonoBehaviour
                 transform.position = Vector3.zero;
             })
             .Append(transform.DOShakePosition(duration,2))
-            .AppendInterval(0.2f)
             .OnComplete(() =>
             {
                 gameObject.SetActive(false);

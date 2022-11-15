@@ -28,12 +28,16 @@ public class player : MonoBehaviour
          {
             Destroy(collider.gameObject);   // 충돌한 bullet 파괴
             GameObject.Find("game").GetComponent<GameController>().ItemSetTime();
-
-         }
+            // Time.timeScale += 10;
+        }
     }
 
     void DecreaseHP() 
     {
         HP -= 1;
+        if (HP == 0)
+        {
+            //gameover();
+        }
     }
 }
