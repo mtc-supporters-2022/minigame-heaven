@@ -21,41 +21,45 @@ public class gameover : MonoBehaviour
     // play again_yes
     public void Yes(bool clique)
     {
-        if (clique)
-        {
-            cliqueYes = true;
-            gameoverPnl.SetActive(true);
-            Time.timeScale = 0;
-            yesBtn.GetComponent<Button>().interactable = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-         
-        }
-        else
-        {
-            cliqueYes = false;
-            gameoverPnl.SetActive(false);
-            Time.timeScale = 1;
-            yesBtn.GetComponent<Button>().interactable = true;
-        }
+        /* if (clique)
+         {
+             cliqueYes = true;
+             gameoverPnl.SetActive(true);
+             Time.timeScale = 0;
+             yesBtn.GetComponent<Button>().interactable = false;
+
+             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+         }
+         else
+         {
+             cliqueYes = false;
+             gameoverPnl.SetActive(false);
+             Time.timeScale = 1;
+             yesBtn.GetComponent<Button>().interactable = true;
+         }*/
     }
 
     public void no(bool clique)
     {
-        if (clique)
-        {
-            cliqueNo = true;
-            gameoverPnl.SetActive(true);
-            Time.timeScale = 0;
-            noBtn.GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            cliqueNo = false;
-            gameoverPnl.SetActive(false);
-            Time.timeScale = 1;
-            noBtn.GetComponent<Button>().interactable = true;
-        }
+        SceneManager.LoadScene("MainScene");
+
+        /* if (clique)
+         {
+             cliqueNo = true;
+             gameoverPnl.SetActive(true);
+             Time.timeScale = 0;
+             noBtn.GetComponent<Button>().interactable = false;
+         }
+         else
+         {
+             cliqueNo = false;
+             gameoverPnl.SetActive(false);
+             Time.timeScale = 1;
+             noBtn.GetComponent<Button>().interactable = true;
+         }*/
     }
 
 }
