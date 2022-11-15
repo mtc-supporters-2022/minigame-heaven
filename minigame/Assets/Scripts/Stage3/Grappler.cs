@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grappler : MonoBehaviour
 {
@@ -14,8 +15,15 @@ public class Grappler : MonoBehaviour
     public Rigidbody2D rigidbody2d;
 
     [Header("GameObject")]
+    public GameObject UIManager;
+
     public GameObject startPnl;
     public GameObject gameoverPnl;
+    
+    float time;
+    int score;
+    public Text scoreTxt;
+    public Text bscoreTxt;
 
     bool isGaming;
     Vector3 bestDist;
@@ -34,6 +42,9 @@ public class Grappler : MonoBehaviour
     {
         if (isGaming)
         {
+            time += Time.deltaTime;
+            score = (int)time * 10;
+            scoreTxt.text = score + "point";
 
             if (bestDist.x < transform.position.x) // 멀리 간 거리 갱신
                 bestDist.x = transform.position.x;
@@ -50,7 +61,7 @@ public class Grappler : MonoBehaviour
             temp.y += 0.3f * Time.deltaTime;
             transform.position = temp;
 
-            if (Input.GetKeyDown(KeyCode.Mouse0)) // 마우스 눌렀을 때
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !UIManager.GetComponent<UIManager>().isPause) // 마우스 눌렀을 때
             {
                 // 줄 생성 위치
                 Vector3 linePos = new Vector3(transform.position.x + 3f, 4.5f, 0f);
@@ -106,8 +117,16 @@ public class Grappler : MonoBehaviour
         {
             gameoverPnl.SetActive(true);
             rigidbody2d.bodyType = RigidbodyType2D.Static;
-            transform.position = new Vector3(-1.2243f, 0.6691437f, -0.22938f);
+            transform.position = new Vector3(-0.31f, 1.23f, -1f);
             bestDist = transform.position;
+
+            if (score > GameManager.Instance.bestScore[3])
+                GameManager.Instance.bestScore[3] = score;
+            bscoreTxt.text = "best score: " + GameManager.Instance.bestScore[3].ToString() + "\nnow score: " + score;
+
+            time = 0;
+            score = 0;
+            scoreTxt.text = "0point";
         }
     }
 }
