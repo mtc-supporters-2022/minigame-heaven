@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject pausePnl;
     public GameObject gameoverPnl;
 
-    public bool isPause;
+    public bool isPause = false;
 
     public void Pause(bool pause)
     {

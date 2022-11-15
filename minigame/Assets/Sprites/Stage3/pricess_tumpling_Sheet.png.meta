@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: 6ce4cded977bc5143aa8ffdec046f035
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1048585253702551312
+    second: pricess_tumpling_Sheet_0
+  - first:
+      213: -7257580622557286330
+    second: pricess_tumpling_Sheet_1
+  - first:
+      213: 5592387826052491181
+    second: pricess_tumpling_Sheet_2
+  - first:
+      213: -7430684033534349604
+    second: pricess_tumpling_Sheet_3
+  - first:
+      213: 684798786679395039
+    second: pricess_tumpling_Sheet_4
+  - first:
+      213: -5174213068097335678
+    second: pricess_tumpling_Sheet_5
+  - first:
+      213: -5243500453971728825
+    second: pricess_tumpling_Sheet_6
+  - first:
+      213: -4488105642585422248
+    second: pricess_tumpling_Sheet_7
+  - first:
+      213: -7179136933145084098
+    second: pricess_tumpling_Sheet_8
+  - first:
+      213: 5607706081760697483
+    second: pricess_tumpling_Sheet_9
+  - first:
+      213: 5255193325871095566
+    second: pricess_tumpling_Sheet_10
+  - first:
+      213: 2609854898226590931
+    second: pricess_tumpling_Sheet_11
+  - first:
+      213: -5064981577193414154
+    second: pricess_tumpling_Sheet_12
+  - first:
+      213: -4605969195246573969
+    second: pricess_tumpling_Sheet_13
+  - first:
+      213: -1410749453586584552
+    second: pricess_tumpling_Sheet_14
+  - first:
+      213: 385285655073253452
+    second: pricess_tumpling_Sheet_15
+  - first:
+      213: 6059616076394703671
+    second: pricess_tumpling_Sheet_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +83,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -41,7 +92,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,9 +126,402 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8b854744da271f0800000000000000
+      internalID: -1048585253702551312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 640f6b740e4e74b90800000000000000
+      internalID: -7257580622557286330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7e31a19172c9d40800000000000000
+      internalID: 5592387826052491181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdea40fad38e0e890800000000000000
+      internalID: -7430684033534349604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2d4a64ed4e08900800000000000000
+      internalID: 684798786679395039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ecfd3f0a08138b0800000000000000
+      internalID: -5174213068097335678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7466a6d4e185b37b0800000000000000
+      internalID: -5243500453971728825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856054372bb07b1c0800000000000000
+      internalID: -4488105642585422248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ffff9fef49e5c90800000000000000
+      internalID: -7179136933145084098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cd42078f292dd40800000000000000
+      internalID: 5607706081760697483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0fdc869c723ee840800000000000000
+      internalID: 5255193325871095566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4fb1cc331183420800000000000000
+      internalID: 2609854898226590931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f12d79471295b9b0800000000000000
+      internalID: -5064981577193414154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66afee9b6f4410c0800000000000000
+      internalID: -4605969195246573969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81c25efa8d20c6ce0800000000000000
+      internalID: -1410749453586584552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c48e1bf034fc85500800000000000000
+      internalID: 385285655073253452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pricess_tumpling_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 17
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ba0cc57b4181450800000000000000
+      internalID: 6059616076394703671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
