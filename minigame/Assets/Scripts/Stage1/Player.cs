@@ -10,8 +10,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject touchScreen;
     [SerializeField] GameObject[] princess;
+    [SerializeField] GameObject prince;
 
     Animator[] anim;
+    int princessNum;
     int princessCount;
 
     void Awake()
@@ -25,6 +27,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Plus();
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             Minus();
@@ -37,10 +44,19 @@ public class Player : MonoBehaviour
         ChangeAnim(State.Idle);
     }
 
-
     public void DoRun()
     {
         ChangeAnim(State.Run);
+    }
+
+    public void DoHit()
+    {
+        ChangeAnim(State.Hit);
+    }
+
+    public void DoRecovery()
+    {
+        ChangeAnim(State.Recovery);
     }
 
     //장애물 터치 트리거 충돌
@@ -48,34 +64,18 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Plus();
-        //Plus();
-        /*        touchScreen.SetActive(false);
-                ChangeAnim(State.Hit);
-                Invoke("ActiveOn", 0.7f);*/
+        prince.SetActive(false);
     }
-
-    /*    void OnTriggerExit2D(Collider2D collision)
-        {
-
-            ChangeAnim(State.Recovery);
-            Invoke("ActiveOn", 0.5f);
-        }*/
 
     public void ChangeAnim(State state)
     {
         for (int i = 0; i < princess.Length; i++) { anim[i].SetInteger("State", (int)state); }
     }
-    /*
-        void ActiveOn()
-        {
-            ChangeAnim(State.Recovery);
-            touchScreen.SetActive(true);
-        }*/
 
     public void Plus()
     {
 
-        if (princessCount == 1 || princessCount == 2)
+        if (princessCount<3)
         {
 
             Sequence sequence = DOTween.Sequence();
@@ -84,29 +84,34 @@ public class Player : MonoBehaviour
                 {
                     if (princessCount == 1)
                     {
-                        princess[2].GetComponent<originPosition>().nextPosUpdate();
-                        princessCount++;
-
+                        princess[princessCount+1].GetComponent<originPosition>().nextPosUpdate();
                     }
+                    princessCount++;
                 });
         }
     }
 
     public void Minus()
     {
-        if (princessCount == 1 || princessCount == 2)
+        if(princessCount==1)
+            //게임 오버
+
+        if (princessCount>0 && princessCount!=1)
         {
             Sequence sequence = DOTween.Sequence();
             sequence
-                .Append(princess[princessCount].transform.DOMove(princess[princessCount].GetComponent<originPosition>().originPos, 0.2f))
+                .Append(princess[princessCount-1].transform.DOMove(princess[princessCount-1].GetComponent<originPosition>().originPos, 0.2f))
                 .OnComplete(() =>
                 {
-                    if (princessCount == 2)
-                        princessCount--;
+                    princessCount--;
+
                 });
-
-
         }
+    }
+
+    public int getCount()
+    {
+        return princessCount;
     }
 
     //애니메이션

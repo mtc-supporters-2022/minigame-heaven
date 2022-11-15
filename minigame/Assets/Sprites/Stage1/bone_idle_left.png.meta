@@ -74,7 +74,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -235,12 +235,12 @@ TextureImporter:
       name: bone_idle_left_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 50
-        width: 35
-        height: 47
+        x: 36
+        y: 34
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,48 +248,6 @@ TextureImporter:
       bones: []
       spriteID: 727cd1ae2b7d4e940800000000000000
       internalID: 5324617822890739495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bone_idle_left_5
-      rect:
-        serializedVersion: 2
-        x: 54
-        y: 50
-        width: 41
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c3b25bd1dcb2bf70800000000000000
-      internalID: 9201624598185161668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bone_idle_left_6
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 50
-        width: 37
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4648dab28b59dd5d0800000000000000
-      internalID: -3036105955538533276
       vertices: []
       indices: 
       edges: []
@@ -311,69 +269,6 @@ TextureImporter:
       bones: []
       spriteID: a4d313991caea8100800000000000000
       internalID: 111159258043727178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bone_idle_left_8
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 40
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17e71b74654a152a0800000000000000
-      internalID: -6750433675974705551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bone_idle_left_9
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 0
-        width: 28
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6b24d360a738a300800000000000000
-      internalID: 263521740210318189
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bone_idle_left_10
-      rect:
-        serializedVersion: 2
-        x: 116
-        y: 0
-        width: 19
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b64ff2c9b7a3d17b0800000000000000
-      internalID: -5251977287868353429
       vertices: []
       indices: 
       edges: []
