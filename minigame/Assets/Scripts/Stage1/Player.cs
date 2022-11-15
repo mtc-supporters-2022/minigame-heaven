@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject touchScreen;
     [SerializeField] GameObject[] princess;
     [SerializeField] GameObject prince;
+    [SerializeField] GameObject gameOver;
 
     Animator[] anim;
     int princessNum;
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < princess.Length; i++) { anim[i] = princess[i].GetComponent<Animator>(); }
 
         princessCount = 1;
+        princessNum = 0;
     }
 
     private void Update()
@@ -77,7 +79,7 @@ public class Player : MonoBehaviour
 
         if (princessCount<3)
         {
-
+            princessNum++;
             Sequence sequence = DOTween.Sequence();
             sequence.Append(princess[princessCount].transform.DOMove(princess[princessCount].GetComponent<originPosition>().nextPos, 0.2f))
                 .OnComplete(() =>
@@ -93,18 +95,17 @@ public class Player : MonoBehaviour
 
     public void Minus()
     {
-        if(princessCount==1)
-            //게임 오버
 
         if (princessCount>0 && princessCount!=1)
         {
+ 
             Sequence sequence = DOTween.Sequence();
             sequence
                 .Append(princess[princessCount-1].transform.DOMove(princess[princessCount-1].GetComponent<originPosition>().originPos, 0.2f))
                 .OnComplete(() =>
                 {
                     princessCount--;
-
+                    princessNum--;
                 });
         }
     }
@@ -112,6 +113,17 @@ public class Player : MonoBehaviour
     public int getCount()
     {
         return princessCount;
+    }
+
+    public int getNum()
+    {
+        return princessNum;
+    }
+
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+        Time.timeScale = 0;
     }
 
     //애니메이션

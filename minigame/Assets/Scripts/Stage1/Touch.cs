@@ -11,10 +11,13 @@ public class Touch : MonoBehaviour
     int coolTime;
     bool skeleton;
     bool doClick;
+    public bool oneTime;
+    public GameObject gameOverSkeleton;
 
     private void Start()
     {
         doClick = true;
+        oneTime = false;
     }
 
     void Update()
@@ -23,6 +26,7 @@ public class Touch : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
+                oneTime = false;
                 time += Time.deltaTime;
 
                 if (time > 1)
@@ -53,15 +57,38 @@ public class Touch : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                setTrigger(false);
-                Player.Inst.DoHit();
-                Player.Inst.Minus();
+
+
+                if (!oneTime)
+                {
+                    if (Player.Inst.getNum() <= 0)
+                        gameOverSkeleton.SetActive(true);
+
+                    setTrigger(false);
+                    Player.Inst.DoHit();
+                    Player.Inst.Minus();
+                    oneTime = true;
+                }
+
+
             }
             else if (Input.GetMouseButtonDown(0))
             {
-                setTrigger(false);
-                Player.Inst.DoHit();
-                Player.Inst.Minus();
+
+
+                if (!oneTime)
+                {
+
+                    if (Player.Inst.getNum() <= 0)
+                        gameOverSkeleton.SetActive(true);
+
+
+                    setTrigger(false);
+                    Player.Inst.DoHit();
+                    Player.Inst.Minus();
+                    oneTime = true;
+                }
+
             }
         }
 
@@ -103,5 +130,10 @@ public class Touch : MonoBehaviour
     public void setTrigger(bool isTrigger)
     {
         this.isTrigger = isTrigger;
+    }
+
+    public void setOne(bool isTrigger)
+    {
+        this.oneTime = isTrigger;
     }
 }

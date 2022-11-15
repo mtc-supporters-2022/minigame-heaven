@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Skeleton : MonoBehaviour
+public class GameOverAnimaition : MonoBehaviour
 {
     Sequence sequence;
 
     [SerializeField] float duration;
-    [SerializeField] float strength;
-    [SerializeField] int vibrato;
-    [SerializeField] int randomness;
+    [SerializeField] GameObject skel1;
     [SerializeField] GameObject touch;
+    [SerializeField] Camera mcamera;
 
     // Start is called before the first frame update
     void Start()
@@ -20,22 +19,25 @@ public class Skeleton : MonoBehaviour
             .SetAutoKill(false) //Ãß°¡
             .OnStart(() =>
             {
+                Timer.Inst.setPause(true);
+                mcamera.GetComponent<AudioSource>().mute = true;
+                skel1.SetActive(false);
                 transform.position = Vector3.zero;
+                transform.localScale = Vector3.zero;
+                touch.SetActive(false);
             })
-            .Append(transform.DOShakePosition(duration,2))
+            .Append(transform.DOShakePosition(duration, 2))
+            .Join(transform.DOScale(100, 2f))
+            .Append(transform.GetComponent<SpriteRenderer>().DOFade(0,0.5f))
             .OnComplete(() =>
             {
-                gameObject.SetActive(false);
-                Touch.Inst.setDoClick(true);
-                Touch.Inst.startRecovery();
+                Player.Inst.GameOver();
+
             });
     }
 
     private void OnEnable()
     {
-        Touch.Inst.setDoClick(false);
         sequence.Restart();
     }
-
-
 }
