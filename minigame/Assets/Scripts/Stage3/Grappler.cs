@@ -26,7 +26,7 @@ public class Grappler : MonoBehaviour
     public Text bscoreTxt;
 
     bool isGaming;
-    bool gameStart;
+    public bool gameStart;
     Vector3 bestDist;
 
     public Animator anim;
