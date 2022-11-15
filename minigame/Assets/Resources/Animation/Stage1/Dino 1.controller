@@ -85,7 +85,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 71c15794ed8fc5a4d98d26a870ebfd65, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3bc03f7acbe5b624db195fc73d16a7c3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -97,7 +97,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dino
+  m_Name: Dino 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: State
@@ -166,7 +166,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 46f59fe047679344b8e556a2cd57db7e, type: 2}
+  m_Motion: {fileID: 7400000, guid: eda081abe6d098848982ddeff80a03cd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
