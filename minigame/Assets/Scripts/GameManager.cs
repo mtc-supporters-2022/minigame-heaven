@@ -5,14 +5,36 @@ using UnityEngine.SceneManagement;  // 씬 전환 위함
 
 public class GameManager : MonoBehaviour
 {
-    void Start()
+    private static GameManager _instance;
+    public int[] bestScore = new int[5]; // 0 비워두고 1, 2, 3, 4 사용
+
+    public static GameManager Instance
     {
-        
+        get
+        {
+            if (!_instance) // 인스턴스가 없는 경우에 접근하려 하면 인스턴스를 할당
+            {
+                _instance = FindObjectOfType(typeof(GameManager)) as GameManager;
+
+                if (_instance == null)
+                    Debug.Log("no Singleton obj");
+            }
+            return _instance;
+        }
     }
 
-    void Update()
+    private void Awake()
     {
-        
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);    // 인스턴스가 존재하는 경우 새로 생기는 인스턴스를 삭제
+        }
+
+        DontDestroyOnLoad(gameObject); // 씬이 전환되더라도 선언되었던 인스턴스가 파괴되지 않게
     }
 
     public void LoadScene(int idx)
