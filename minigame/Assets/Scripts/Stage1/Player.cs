@@ -25,10 +25,12 @@ public class Player : MonoBehaviour
 
         princessCount = 1;
         princessNum = 0;
+
     }
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Plus();
